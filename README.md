@@ -95,7 +95,7 @@ When an engineer clicks the button on an EC2 Instance record, the client script 
 The Script Include contains the logic to actually perform the remediation. When called by the UI Action, it:  
 1. Looks up the EC2 Instance record in ServiceNow using the provided `sys_id`.  
 2. Pulls the instance details (name, ID, and current status).  
-3. Builds a REST API call using the Connection & Credential Alias, HTTP Connection, and Basic Auth you configured.  
+3. Builds a REST API call using the Connection & Credential Alias, HTTP Connection, and Basic Auth configured.  
 4. Sends the remediation request to the AWS Integration Server.  
 5. Records the request and response in the Remediation Log table, including status codes, payloads, and whether the call succeeded.  
 6. Returns a message back to the client so the engineer knows immediately if the remediation worked.  
@@ -129,7 +129,7 @@ A new **Incident record** is automatically generated with full mapping of fields
 
 An **Assignment Rule** ensures that incidents with Category = Cloud and Subcategory = EC2 are automatically routed to the **Netflix DevOps assignment group**.  
 
-<img width="824" height="368" alt="image" src="https://github.com/user-attachments/assets/28ec0c34-eecf-4dc3-89c1-5d5474c8538d" />
+<img width="788" height="229" alt="image" src="https://github.com/user-attachments/assets/ec362360-fa9e-4f98-a1a5-bf373e37f66f" />
 
 <img width="709" height="219" alt="image" src="https://github.com/user-attachments/assets/997e6df7-6488-4ad1-bccf-6b5a404e5997" />
 
@@ -179,6 +179,12 @@ For security, I leveraged the default admin role generated with the scoped appli
 2. Assigned the role to the **Netflix DevOps group**.  
 
 This ensured that only Netflix DevOps engineers had access to the application and its related modules (EC2 Instances and Remediation Logs). No other teams could view or interact with the tables.  
+
+## 8. Testing and Validation  
+
+End-to-end testing confirmed that the system/flow works as expected!  
+
+<img width="182" height="349" alt="image" src="https://github.com/user-attachments/assets/47854a88-e154-4476-86c9-efcf07d752e7" />
 
 
 # Architecture Diagram
